@@ -1,0 +1,92 @@
+/* styles.css */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 120px);
+    gap: 10px;
+}
+
+.pile {
+    width: 120px;
+    height: 160px;
+    background-color: #ccc;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: lightgray;
+    color: black;
+}
+
+.button {
+    background-color: blue;
+    color: white;
+}
+
+.header {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.paragraph {
+    font-size: 16px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+} 
+
+
+.container {
+    margin: 20px;
+    padding: 10px;
+}
+
+.button {
+    margin: 5px;
+    padding: 8px 12px;
+}  
+
+
+.card {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 300px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.header {
+    text-align: center;
+}
+
+.navbar {
+    justify-content: flex-end;
+}

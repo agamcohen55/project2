@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* common */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+/* game text */
+.game-text {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    left: 0;
+    top: 0;
+    color: rgba(241, 8, 0, 1);
+    font-size: 50px;
+    z-index: 1;
+}
+
+.text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.text-box>button {
+    margin-top: 1rem;
+    font-size: 20px;
+    padding: 1rem;
+    color: #fff;
+    background: rgba(149, 146, 173, 1);
+    border: none;
+    cursor: pointer;
+    border-top: 10px solid rgba(109, 72, 168, 1);
+    border-right: 10px solid rgba(33, 35, 82, 1);
+    border-bottom: 10px solid rgba(148, 109, 175, 1);
+    border-left: 10px solid rgba(74, 74, 172, 1);
+}
+
+.text-box>button:hover {
+    color: rgba(0, 5, 157, 1);
+}
+
+/* game wrap */
+.game-wrap {
+    position: absolute;
+    top: calc(50% + 7vh);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(149, 146, 173, 1);
+    border-top: 30px solid rgba(109, 72, 168, 1);
+    border-right: 20px solid rgba(33, 35, 82, 1);
+    border-bottom: 30px solid rgba(148, 109, 175, 1);
+    border-left: 20px solid rgba(74, 74, 172, 1);
+}
+
+.castle {
+    display: block;
+    width: 5rem;
+    height: 4rem;
+    position: absolute;
+    border-radius: 50%;
+    bottom: calc(100% + 75px);
+    z-index: 2;
+    background-color: rgba(222, 109, 3, 1);
+}
+
+.castle-left {
+    left: -1rem;
+}
+
+.castle-right {
+    right: -1rem;
+}
+
+.castle::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 2.5rem;
+    background-color: rgba(222, 109, 3, 1);
+    border-radius: 1rem;
+    bottom: 100%;
+    left: calc(2.5rem - 2.5px);
+}
+
+.castle::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 1.5rem;
+    background: rgba(255, 145, 4, 1);
+    border-radius: 50%;
+    top: 0.3rem;
+    left: 1.5rem;
+}
+
+.castle .cap {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(222, 109, 3, 1);
+    transform: rotate(-40deg) skew(20deg, 10deg);
+    top: -0.35rem;
+    left: 1.5rem;
+}
+
+.castle .line {
+    position: absolute;
+    width: 4rem;
+    height: 0.5rem;
+    background-color: rgb(69, 76, 183);
+    border-radius: 1rem;
+    bottom: -0.2rem;
+    left: 0.5rem;
+}
+
+/* title */
+.game-title {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 100%;
+    background: rgba(149, 146, 173, 1);
+}
+
+.game-title::before,
+.game-title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1rem;
+    height: 100%;
+    top: 0;
+}
+
+.game-title::before {
+    left: 0;
+    background: rgba(221, 219, 172, 1);
+}
+
+.game-title::after {
+    right: 0;
+    background: rgba(76, 73, 176, 1);
+}
+
+.game-title .symbol {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    background: rgba(253, 147, 8, 1);
+    top: -5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 7px solid rgba(228, 217, 167, 1);
+    border-right: 7px solid rgba(219, 109, 0, 1);
+    border-bottom: 7px solid rgba(71, 0, 99, 1);
+    border-left: 7px solid rgba(145, 109, 168, 1);
+}
+
+.game-title .symbol::after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(149, 146, 173, 1);
+    border-top: 7px solid rgba(71, 0, 99, 1);
+    border-right: 7px solid rgba(219, 109, 0, 1);
+    border-bottom: 7px solid rgba(228, 217, 167, 1);
+    border-left: 7px solid rgba(145, 109, 168, 1);
+}
+
+.game-title h1 {
+    position: relative;
+    font-size: 35px;
+    margin: auto 2rem 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    color: rgba(241, 8, 0, 1);
+    background: rgba(149, 146, 173, 1);
+    border-right: 1rem solid rgba(221, 219, 172, 1);
+    border-bottom: 5px solid rgba(222, 219, 252, 1);
+    border-left: 1rem solid rgba(76, 73, 176, 1);
+    top: 0;
+}
+
+.game-title h1::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 14rem;
+    left: -2.5px;
+    bottom: calc(100% - 7rem - 5px);
+    background: rgba(149, 146, 173, 1);
+    border: 0.5rem solid rgba(69, 76, 183, 1);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.game-title h1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    top: calc(100% + 5px);
+    left: 0;
+    bottom: calc(100% - 7rem - 5px);
+    background: rgba(149, 146, 173, 1);
+    z-index: 1;
+}
+
+/* score */
+.score-wrap {
+    padding: 1rem;
+    border-top: 5px solid rgba(222, 219, 252, 1);
+    border-right: 5px solid rgba(221, 219, 172, 1);
+    border-bottom: 5px solid rgba(6, 2, 150, 1);
+    border-left: 5px solid rgba(221, 219, 172, 1);
+}
+
+.score-wrap span,
+.score {
+    display: inline-block;
+    font-size: 25px;
+    color: rgba(0, 5, 157, 1);
+}
+
+/* playground */
+.playground {
+    position: relative;
+    z-index: 2;
+}
+
+.playground::before,
+.playground::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1rem;
+    height: calc(100% + 2rem);
+    top: 0;
+}
+
+.playground::before {
+    left: 0;
+    background: rgba(221, 219, 172, 1);
+}
+
+.playground::after {
+    right: 0;
+    background: rgba(76, 73, 176, 1);
+}
+
+.playground>ul {
+    width: 250px;
+    margin: auto 2rem 2rem;
+    background: #000;
+    border-top: 5px solid rgba(6, 2, 150, 1);
+    border-right: 5px solid rgba(221, 219, 172, 1);
+    border-bottom: 5px solid rgba(222, 219, 252, 1);
+    border-left: 5px solid rgba(221, 219, 172, 1);
+}
+
+.playground>ul>li {
+    width: 100%;
+    height: 25px;
+}
+
+.playground>ul>li>ul {
+    display: flex;
+}
+
+.playground>ul>li>ul>li {
+    width: 25px;
+    height: 25px;
+    outline: 1px solid #333;
+}
+
+/* blocks */
+.square {
+    background: rgba(0, 185, 184, 1);
+}
+
+.bar {
+    background: rgba(250, 6, 0, 1);
+}
+
+.tree {
+    background: rgba(71, 188, 0, 1);
+}
+
+.zeeLeft {
+    background: rgba(246, 147, 16, 1);
+}
+
+.zeeRight {
+    background: rgba(6, 73, 217, 1);
+}
+
+.elLeft {
+    background: rgba(225, 5, 254, 1);
+}
+
+.elRight {
+    background: rgba(221, 184, 4, 1);
+}
+
+.moving,
+.seized {
+    display: relative;
+}
+
+.moving::after,
+.seized::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-top: 5px solid rgba(255, 255, 255, .7);
+    border-right: 5px solid rgba(255, 255, 255, .3);
+    border-bottom: 5px solid rgba(0, 0, 0, .7);
+    border-left: 5px solid rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+}
+
+/* responsive */
+@media all and (max-height: 950px) {
+    .text-box {
+        transform: scale(0.9);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+@media all and (max-height: 850px) {
+    .text-box {
+        transform: scale(0.8);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+@media all and (max-height: 750px) {
+    .text-box {
+        transform: scale(0.7);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+}
+
+@media all and (max-height: 650px) {
+    .text-box {
+        transform: scale(0.6);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+}
+
+@media all and (max-height: 550px) {
+    .text-box {
+        transform: scale(0.5);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+@media all and (max-height: 450px) {
+    .text-box {
+        transform: scale(0.4);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+}
+
+@media all and (max-height: 350px) {
+    .text-box {
+        transform: scale(0.3);
+    }
+
+    .game-wrap {
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+}

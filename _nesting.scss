@@ -1,0 +1,92 @@
+nav {
+    width: $baseWidth;
+    height: 40px;
+    background-color: black;
+    margin: 0 auto;
+
+    ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-evenly;
+
+        a {
+            display: block;
+            text-align: center;
+            font-family: 'Patrick Hand', cursive;
+            color: #fff;
+            line-height: 1.9;
+            text-decoration: none;
+            font-size: 1.3em;
+            padding: 0px 25px;
+
+            &:hover {
+                background-color: silver;
+            }
+        }
+    }
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main section styles */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    /* Additional styles for small screens */
+}

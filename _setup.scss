@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$textSize: 1.1rem;
+$headerSize: 2.2rem;
+$textColor: purple;
+$baseWidth: 80vw;
+
+// @extend exs 
+
+button {
+    background-color: turquoise;
+    color: #639;
+    padding: 10px 20px;
+    font-family: 'patrick hand';
+    font-size: 2rem;
+    margin: 20px;
+}
+
+//extend
+%box {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-color: purple;
+    border: 1px solid #000;
+}
+
+//mixin
+@mixin boxm($width: 100px, $height: 100px) {
+    width: $width;
+    height: $height;
+    margin: 20px;
+    background-color: rgb(34, 128, 0);
+    border: 1px solid #000;
+}
+
+// Mixin Media 
+@mixin desktop {
+    @media (max-width:992px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width:768px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width:576px) {
+        @content;
+    }
+}

@@ -1,0 +1,76 @@
+/* Basic styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    background-color: white;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.draw-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.draw-button:hover {
+    background-color: #0056b3;
+}
+
+ 
+
+  .red-heart:before {
+      content: '♥';
+      color: red;
+      font-size: 24px;
+  }
+
+  .red-diamond:before {
+      content: '♦';
+      color: red;
+      font-size: 24px;
+  }
+
+  .queen:before {
+      content: 'Q';
+      font-size: 24px;
+  }
+
+  .king:before {
+      content: 'K';
+      font-size: 24px;
+  }

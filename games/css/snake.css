@@ -1,0 +1,16 @@
+body {
+    margin: 1em;
+    background: #000;
+}
+
+h1 {
+    margin: 1em 0;
+    color: #fff;
+    font: 700 1em/1 sans-serif;
+}
+
+canvas {
+    width: 25em;
+    height: 25em;
+    border: 2px solid #fff;
+}

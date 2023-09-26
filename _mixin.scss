@@ -1,0 +1,19 @@
+.boxm1 {
+    @include boxm(100px, 100px);
+}
+
+.boxm2 {
+    @include boxm(200px, 400px);
+}
+
+.boxm3 {
+    @include boxm(400px, 100px);
+}
+
+.boxm4 {
+    @include boxm(300px, 100px);
+}
+
+.boxm5 {
+    @include boxm(70px, 200px);
+}

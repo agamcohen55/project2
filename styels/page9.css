@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.container {
+    background: url(../imges/paht16.png) no-repeat center/cover;
+    height: 95vh;
+    color: white;
+   
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: column;
+    margin-bottom: 85px;
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.container h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+label {
+    color: rgb(0, 0, 99);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+label[for="name"] {
+    padding-left: 210px;
+}
+
+input[id="name"],
+[id="email"] {
+    border: none;
+    border-bottom: 3px solid rgb(0, 0, 99);
+    background-color: #929292c8;
+
+}
+
+input[id="name"] {
+    margin-left: 30px;
+    padding: 5px 20px;
+}
+
+input[id="email"] {
+    margin-left: 30px;
+    padding: 5px 20px;
+}
+
+input[type="submit"] {
+    padding: 10px 80px;
+    background-color: rgb(0, 0, 99);
+    color: white;
+    border: none;
+}
+@media screen and (max-width:800px) {
+    #img {
+        width: 370px;
+        height: 219px;
+    }
+
+    #header-form {
+        margin-top: 250%;
+    }
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.container {
+  
+}

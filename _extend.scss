@@ -1,0 +1,25 @@
+.btn {
+    @extend button;
+    width: 500px;
+    text-align: center;
+}
+
+.box1 {
+    @extend %box;
+}
+
+.box2 {
+    @extend %box;
+}
+
+.box3 {
+    @extend %box;
+}
+
+.box4 {
+    @extend %box;
+}
+
+.box5 {
+    @extend %box;
+}

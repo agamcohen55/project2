@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button,
+.btn,
+section aside {
+  background-color: #13E8F163;
+  color: whitesmoke;
+  padding: 10px 20px;
+  font-family: 'Dancing Script', cursive;
+  ;
+  font-size: 2rem;
+  margin: 20px;
+  color: black;
+}
+
+.box5,
+.box4,
+.box3,
+.box2,
+.box1 {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  background-color: white;
+  border: 1px solid #000;
+  text-align: center;
+  padding-left: 50%;
+}
+
+section {
+  width: 80vw;
+  margin: 0 auto;
+  background-color: #13E8F163;
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+section h2 {
+  font-size: 2.2rem;
+  color: black
+}
+
+section p {
+  font-size: 1.1rem;
+  color: black;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  section {
+    background-color: aqua;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    background-color: lightcoral;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    background-color: lightgrey;
+  }
+}
+
+nav {
+  width: 80vw;
+  height: 40px;
+  background-color: #13E8F163;
+  margin: 0 auto;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav ul a {
+  display: block;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  color: black;
+  line-height: 1.9;
+  text-decoration: none;
+  font-size: 1.3em;
+  padding: 0px 25px;
+}
+
+nav ul a:hover {
+  background-color: blue;
+}
+
+.btn {
+  background-color: #13E8F163;
+  color: black;
+  padding: 10px 20px;
+  font-family: "Dancing";
+  font-size: 2rem;
+  margin: 20px;
+}
+
+.boxm1 {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  background-color: rgb(34, 128, 0);
+  border: 1px solid #000;
+}
+
+.boxm2 {
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+  background-color: rgb(34, 128, 0);
+  border: 1px solid #000;
+}
+
+.boxm3 {
+  width: 400px;
+  height: 100px;
+  margin: 20px;
+  background-color: rgb(34, 128, 0);
+  border: 1px solid #000;
+}
+
+.boxm4 {
+  width: 300px;
+  height: 100px;
+  margin: 20px;
+  background-color: rgb(34, 128, 0);
+  border: 1px solid #000;
+}
+
+.boxm5 {
+  width: 70px;
+  height: 200px;
+  margin: 20px;
+  background-color: rgb(34, 128, 0);
+  border: 1px solid #000;
+}
+
+header {
+  width: 100vw;
+  height: 70px;
+  background-color: #000;
+}
+
+@media (max-width: 992px) {
+  header {
+    background-color: #006;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    background-color: #050;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    background-color: #fc0;
+  }
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #13E8F163;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+small {
+  display: block;
+  margin-top: 5px;
+  color: #999;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.black-bar {
+  top: 3903px;
+  left: 0.5px;
+  width: 1920px;
+  height: 200px;
+  background: #1AE0EC 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.img1 {
+  top: 3968px;
+  left: 1503px;
+  width: 22px;
+  height: 41px;
+  background: transparent url('img/Icon awesome-facebook-f.png') 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.toolbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.toolbar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.toolbar .service-list {
+  margin-left: auto;
+}
+
+.toolbar .service-list li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.toolbar .service-list li:last-child {
+  margin-right: 0;
+}
+
+.toolbar .service-list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  ;
+}
+
+.toolbar .service-list a:hover {
+  text-decoration: underline;
+
+}
+
+/*# sourceMappingURL=main.css.map */

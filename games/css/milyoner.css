@@ -1,0 +1,58 @@
+
+
+.container {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.question {
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.option {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.phone-button,
+.fifty-fifty-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.phone-button {
+    background-color: #4caf50;
+}
+
+.fifty-fifty-button {
+    background-color: #ff9800;
+}

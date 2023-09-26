@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noa Kirel Puzzle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #puzzle-container {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .puzzle-piece {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            background-size: 300px 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="puzzle-container">
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(0)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(1)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(2)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(3)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(4)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(5)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(6)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(7)"></div>
+        <div class="puzzle-piece" style="background-image: url('imges/נועה קירל.jpg');"
+            onclick="swapPieces(8)"></div>
+    </div>
+    <script>
+        const pieces = document.querySelectorAll('.puzzle-piece');
+        const emptyPieceIndex = 8;
+
+        function swapPieces(pieceIndex) {
+            if (isValidMove(pieceIndex)) {
+                pieces[emptyPieceIndex].style.backgroundImage = pieces[pieceIndex].style.backgroundImage;
+                pieces[pieceIndex].style.backgroundImage = '';
+                emptyPieceIndex = pieceIndex;
+            }
+        }
+
+        function isValidMove(pieceIndex) {
+            const emptyCol = emptyPieceIndex % 3;
+            const emptyRow = Math.floor(emptyPieceIndex / 3);
+            const pieceCol = pieceIndex % 3;
+            const pieceRow = Math.floor(pieceIndex / 3);
+
+            return (
+                (Math.abs(emptyCol - pieceCol) === 1 && emptyRow === pieceRow) ||
+                (Math.abs(emptyRow - pieceRow) === 1 && emptyCol === pieceCol)
+            );
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+section {
+    width: $baseWidth;
+    margin: 0 auto;
+    background-color: beige;
+    padding: 20px;
+
+    h2 {
+        font-size: $headerSize;
+        color: teal;
+    }
+
+    p {
+        font-size: $textSize;
+        color: $textColor;
+        text-align: justify;
+        line-height: 1.5;
+    }
+
+    aside {
+        @extend button;
+    }
+
+    @include desktop {
+        background-color: aqua;
+    }
+
+    @include tablet {
+        background-color: lightcoral;
+    }
+
+    @include mobile {
+        background-color: lightgrey;
+    }
+}

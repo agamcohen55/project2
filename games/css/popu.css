@@ -1,0 +1,49 @@
+button {
+    display: block;
+    margin: 20px auto;
+    background-color: teal;
+    color: white;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.wrapper {
+    background-color: rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+}
+
+.popup {
+    font-family: arial;
+    text-align: center;
+    width: 300px;
+    margin: 20% auto;
+    background-color: white;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    cursor: pointer;
+
+}
+
+.popup a {
+    background-color: teal;
+    color: white;
+    text-decoration: none;
+    padding: 15px 6px;
+    display: block;
+
+
+}

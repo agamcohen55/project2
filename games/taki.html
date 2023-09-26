@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #game-board {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 300px;
+            gap: 5px;
+        }
+
+        .card {
+            width: 60px;
+            height: 100px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #draw-card {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* סגנון לשחקן */
+@keyframes player-turn {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+/* סגנון למחשב */
+@keyframes computer-turn {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+/* סגנון לקלף מושג בקופה */
+@keyframes draw-card-animation {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+    </style>
+    <title>משחק טאקי</title>
+</head>
+
+<body>
+    <div id="game-board"></div>
+    <div id="players-hands"></div>
+    <button id="start-game">Start Game</button>
+
+    <button id="draw-card">שלף קלף</button>
+    <button id="new-game">התחל משחק חדש</button>
+
+
+    <script>
+     const colors = ['red', 'blue', 'green', 'yellow'];
+        const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'כ', 'צ', 'פ', 'A'];
+
+        const gameBoard = document.getElementById('game-board');
+        const drawCardButton = document.getElementById('draw-card');
+
+        const deck = [];
+
+        function createCard(card) {
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+            cardElement.style.backgroundColor = card.color;
+            cardElement.textContent = card.number;
+            return cardElement;
+        }
+
+        function drawCard() {
+            if (deck.length > 0) {
+                const drawnCard = deck.pop();
+                const cardElement = createCard(drawnCard);
+                gameBoard.appendChild(cardElement);
+            }
+        }
+
+        drawCardButton.addEventListener('click', drawCard);
+
+        // יצירת חפיסת קלפים
+        colors.forEach(color => {
+            numbers.forEach(number => {
+                deck.push({ color, number });
+            });
+        });
+    const players = ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8', 'Player 9', 'Player 10'];
+
+    const playersHands = {};
+
+    function startGame() {
+        players.forEach(player => {
+            playersHands[player] = [];
+            for (let i = 0; i < 8; i++) {
+                const drawnCard = deck.pop();
+                playersHands[player].push(drawnCard);
+            }
+        });
+
+        const leadingCard = deck.pop();
+        const cardElement = createCard(leadingCard);
+        gameBoard.appendChild(cardElement);
+    }
+
+    const startGameButton = document.getElementById('start-game');
+    startGameButton.addEventListener('click', startGame);
+    let currentPlayerIndex = 0;
+
+    function nextPlayer() {
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    }
+
+    function playerMove(player, cardIndex) {
+        const playerHand = playersHands[player];
+        const playedCard = playerHand[cardIndex];
+        if (isValidMove(playedCard)) {
+            playerHand.splice(cardIndex, 1);
+            const cardElement = createCard(playedCard);
+            gameBoard.appendChild(cardElement);
+            nextPlayer();
+        }
+    }
+
+    function isValidMove(card) {
+        const leadingCard = gameBoard.lastElementChild;
+        return card.color === leadingCard.style.backgroundColor || card.number === leadingCard.textContent || isSpecialCard(card);
+    }
+
+    function isSpecialCard(card) {
+        return card.number === 'ש' || card.number === 'פלוס' || card.number === 'כיוון' || card.number === 'טאקי' || card.number === 'סופרטאקי' || card.number === 'מלך';
+    }
+ const playersHandsElement = document.getElementById('players-hands');
+
+    function updatePlayersHands() {
+        playersHandsElement.innerHTML = '';
+
+        players.forEach(player => {
+            const playerHand = playersHands[player];
+            const handContainer = document.createElement('div');
+            handContainer.classList.add('player-hand');
+
+            playerHand.forEach((card, index) => {
+                const cardElement = createCard(card);
+                cardElement.addEventListener('click', () => playerMove(player, index));
+                handContainer.appendChild(cardElement);
+            });
+
+            playersHandsElement.appendChild(handContainer);
+        });
+    }
+
+    updatePlayersHands();
+    const SPECIAL_CARDS = {
+        STOP: 'stop',
+        PLUS: 'plus',
+        CHANGE_COLOR: 'change-color',
+        TAKI: 'taki',
+        SUPER_TAKI: 'super-taki',
+        SWITCH_DIRECTION: 'switch-direction',
+        KING: 'king',
+        PLUS3: 'plus3',
+        BROKEN_PLUS3: 'broken-plus3'
+    };
+
+    function isSpecialCard(card) {
+            return Object.values(SPECIAL_CARDS).includes(card.number);
+        }
+    function applySpecialCardEffect(player, card) {
+        switch (card.number) {
+            case SPECIAL_CARDS.STOP:
+                // הפסק את תור השחקן הבא
+                nextPlayer();
+                break;
+            case SPECIAL_CARDS.PLUS:
+                // משוך 2 קלפים מהקופה והוסף אותם ליד שחקן אחר
+                drawCardsFromDeck(nextPlayerIndex(), 2);
+                break;
+            case SPECIAL_CARDS.CHANGE_COLOR:
+                // החלף את הצבע של הקלף המוביל
+                // ותן תור לשחקן הבא
+                changeTopCardColor();
+                nextPlayer();
+                break;
+            // הוסף כללי פקודות נוספות כאן
+        }
+    }
+    function playerMove(player, cardIndex) {
+        const playerHand = playersHands[player];
+        const card = playerHand[cardIndex];
+
+        if (isValidMove(card)) {
+            // הסר את הקלף מהיד של השחקן
+            const playedCard = playerHand.splice(cardIndex, 1)[0];
+
+            // בדיקה אם הקלף הוא קלף פקודה ובמקרה כזה, הפעל את הפקודה
+            if (isSpecialCard(playedCard)) {
+                applySpecialCardEffect(player, playedCard);
+            }
+
+            // פעולות נוספות אחרי שחקן משחק קלף
+            afterPlayerMove(player);
+
+            // עדכון התצוגה
+            updatePlayersHands();
+            updateTopCard();
+            updateCurrentPlayer();
+        }
+    }
+    function handleKingCard(card) {
+        if (card.number === 'מלך') {
+            currentPlayerIndex = (currentPlayerIndex + direction) % players.length;
+            if (currentPlayerIndex < 0) {
+                currentPlayerIndex += players.length;
+            }
+            if (players[currentPlayerIndex].type === 'computer') {
+                computerTurn();
+            }
+        }
+    }
+
+    // ...
+
+    function playCard(cardIndex) {
+        const selectedCard = players[currentPlayerIndex].hand[cardIndex];
+
+        if (isValidMove(selectedCard)) {
+            handleKingCard(selectedCard);
+
+            discardPile.push(selectedCard);
+            players[currentPlayerIndex].hand.splice(cardIndex, 1);
+
+            if (players[currentPlayerIndex].hand.length === 0) {
+                // Handle player winning the game
+                console.log(`${players[currentPlayerIndex].name} wins!`);
+                return;
+            }
+
+            nextPlayerTurn();
+            updateGameDisplay();
+        }
+    }
+    function shuffleDeck() {
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+    }
+  function drawFromDeck(player) {
+        const drawnCard = deck.pop();
+        player.hand.push(drawnCard);
+    }
+
+    function changeDirection() {
+        direction *= -1;
+    }
+    function handlePlusCard() {
+        nextPlayerTurn();
+        drawFromDeck(players[currentPlayerIndex]);
+        drawFromDeck(players[currentPlayerIndex]);
+        updateGameDisplay();
+    }
+
+    function handleChangeColorCard(newColor) {
+        currentPlayerColor = newColor;
+        nextPlayerTurn();
+        updateGameDisplay();
+    }
+
+    // כדוגמה - הוספת פונקציה לטיפול בקלף "ערבוב צבע"
+    function handleChangeColorCard() {
+        // כאן תוכל להציג ממשק נפרד לבחירת צבע או לבחור אוטומטית
+        // ולשנות את currentPlayerColor לצבע הנבחר
+        nextPlayerTurn();
+        updateGameDisplay();
+    }
+
+    function computerTurn() {
+            if (deck.length > 0) {
+                const computerPlayer = players[currentPlayerIndex]; // השחקן המחשב
+                const randomIndex = Math.floor(Math.random() * computerPlayer.hand.length); // בחירת אינדקס רנדומלי בין קלפי השחקן
+                const selectedCard = computerPlayer.hand[randomIndex]; // הקלף שנבחר
+
+                // הוספת הקלף לערימת המשחק והצגה בממשק
+                gamePile.push(selectedCard);
+                updateGameInterface();
+
+                // העברת התור לשחקן הבא
+                moveToNextPlayer();
+            }
+        }
+
+        function updateGameInterface() {
+                // עדכון ערימת המשחק
+                const gamePileElement = document.getElementById('game-pile');
+                const topCard = gamePile[gamePile.length - 1];
+                gamePileElement.innerHTML = ''; // ניקוי תוכן קודם
+                const cardElement = createCard(topCard);
+                gamePileElement.appendChild(cardElement);
+
+                // עדכון ידי השחקנים
+                for (let i = 0; i < players.length; i++) {
+                    const player = players[i];
+                    const playerHandElement = document.getElementById(`player-${i + 1}-hand`);
+                    playerHandElement.innerHTML = ''; // ניקוי תוכן קודם
+
+                    for (let j = 0; j < player.hand.length; j++) {
+                        const card = player.hand[j];
+                        const cardElement = createCard(card);
+                        playerHandElement.appendChild(cardElement);
+                    }
+                }
+
+                // עדכון מספר הקלפים בקופה
+                const deckSizeElement = document.getElementById('deck-size');
+                deckSizeElement.textContent = `מספר הקלפים בקופה: ${deck.length}`;
+            }
+    function computerPlay() {
+        const topCard = gamePile[gamePile.length - 1];
+
+        for (let i = 0; i < computer.hand.length; i++) {
+            const card = computer.hand[i];
+            if (isCardValid(card, topCard)) {
+                return card;
+            }
+        }
+
+        return null; // אם אין קלף תקין, המחשב מחליט לשלוף קלף מהקופה
+    }
+
+    function computerTurn() {
+            const drawnCard = deck.pop();
+            computer.hand.push(drawnCard);
+
+            const playedCard = computerPlay();
+
+            if (playedCard) {
+                const cardIndex = computer.hand.indexOf(playedCard);
+                computer.hand.splice(cardIndex, 1);
+                gamePile.push(playedCard);
+            }
+
+            updateGameInterface();
+        }
+    function checkWinner() {
+        if (player.hand.length === 0) {
+            alert("אתה ניצחת!");
+            resetGame();
+        } else if (computer.hand.length === 0) {
+            alert("המחשב ניצח!");
+            resetGame();
+        }
+    }
+
+
+    function playerTurn() {
+            const playedCard = playerPlay();
+
+            if (playedCard) {
+                const cardIndex = player.hand.indexOf(playedCard);
+                player.hand.splice(cardIndex, 1);
+                gamePile.push(playedCard);
+            }
+
+            updateGameInterface();
+            checkWinner();
+        }
+    function computerTurn() {
+        const drawnCard = deck.pop();
+        computer.hand.push(drawnCard);
+
+        const playedCard = computerPlay();
+
+        if (playedCard) {
+            const cardIndex = computer.hand.indexOf(playedCard);
+            computer.hand.splice(cardIndex, 1);
+            gamePile.push(playedCard);
+        }
+
+        updateGameInterface();
+        checkWinner();
+    }
+
+    const newGameButton = document.getElementById('new-game');
+        const suggestMoveButton = document.getElementById('suggest-move');
+
+        // הוספת מאזין לכפתור "התחל משחק חדש"
+        newGameButton.addEventListener('click', resetGame);
+
+        function computerTurn() {
+            // במהלך התור של המחשב, נבטל את הלחיצה על כפתור "הציע מהלך"
+            suggestMoveButton.disabled = true;
+
+            const drawnCard = deck.pop();
+            computer.hand.push(drawnCard);
+
+            const playedCard = computerPlay();
+
+            if (playedCard) {
+                const cardIndex = computer.hand.indexOf(playedCard);
+                computer.hand.splice(cardIndex, 1);
+                gamePile.push(playedCard);
+            }
+
+            updateGameInterface();
+            checkWinner();
+        }
+    function resetGame() {
+        player.hand = [];
+        computer.hand = [];
+        gamePile = [];
+        deck = [];
+
+        initializeDeck();
+        dealCards();
+        updateGameInterface();
+
+        suggestMoveButton.disabled = false; // אפשר ללחוץ על כפתור "הציע מהלך" שוב
+
+        // הסתרת הכפתור "התחל משחק חדש" לאחר התחלת המשחק
+        newGameButton.style.display = 'none';
+    }
+
+    function startPlayerTurnAnimation() {
+        const playerAnimation = player.handElement.animate(
+            [{ transform: 'translateX(0)' }, { transform: 'translateX(100%)' }],
+            { duration: 1000 }
+        );
+
+        playerAnimation.onfinish = () => {
+            computer.handElement.style.transform = 'translateX(0)';
+            computerTurn();
+        };
+    }
+
+    function startComputerTurnAnimation() {
+        const computerAnimation = computer.handElement.animate(
+            [{ transform: 'translateX(100%)' }, { transform: 'translateX(0)' }],
+            { duration: 1000 }
+        );
+
+        computerAnimation.onfinish = () => {
+            player.handElement.style.transform = 'translateX(0)';
+            suggestMoveButton.disabled = false;
+        };
+    }
+
+    function playerTurn() {
+            // מנע התערבות של השחקן במהלך התור של המחשב
+            suggestMoveButton.disabled = true;
+
+            // הפעלת אנימציה לתור השחקן
+            startPlayerTurnAnimation();
+        }
+
+        function computerTurn() {
+            // הפעלת אנימציה לתור המחשב
+            startComputerTurnAnimation();
+        }
+    function drawCardAnimation(cardElement) {
+        const animation = cardElement.animate(
+            [{ transform: 'translateY(-100%)' }, { transform: 'translateY(0)' }],
+            { duration: 500 }
+        );
+
+        animation.onfinish = () => {
+            // לאחר הסיום של האנימציה, נשלב את הקלף ביד השחקן או המחשב
+            if (currentPlayer === player) {
+                player.handElement.appendChild(cardElement);
+            } else {
+                computer.handElement.appendChild(cardElement);
+            }
+
+            // הפעלת התור של השחקן הנוכחי
+            currentPlayerTurn();
+        };
+    }
+    function currentPlayerTurn() {
+        // הגרסה המקורית: endTurn(currentPlayer);
+
+        // השורה החדשה עם האנימציה
+        drawCardAnimation(deck.pop());
+    }
+
+    
+    </script>
+</body>
+
+</html>

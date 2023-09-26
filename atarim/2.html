@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Details</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .details-page {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .details-page h2 {
+            color: #f00;
+            font-size: 24px;
+        }
+
+        .details-page p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="details-page">
+        <h2>User DetailsI apologize for the incomplete response. Here's the complete code for the `details.html` file:
+
+            ```html
+            <!DOCTYPE html>
+            <html>
+
+            <head>
+                <title>User Details</title>
+                <style>
+                    
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .details-page {
+                        text-align: center;
+                        margin: 20px;
+                    }
+
+                    .details-page h2 {
+                        color: #f00;
+                        font-size: 24px;
+                    }
+
+                    .details-page p {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+                </style>
+            </head>
+
+            <body>
+                <div class="details-page">
+                    <h2>User Details</h2>
+                    <p>Username: <span id="username"></span></p>
+                    <p>Password: <span id="password"></span></p>
+                </div>
+
+                <script>
+                    // JavaScript code to retrieve and display user details from the URL parameters
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const username = urlParams.get('username');
+                    const password = urlParams.get('password');
+
+                    document.getElementById('username').textContent = username;
+                    document.getElementById('password').textContent = password;
+                </script>
+            </body>
+
+            </html>

@@ -1,0 +1,114 @@
+/* עיצוב ראשי */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    /* שינוי צבע הרקע לשחור */
+    color: white;
+    /* שינוי צבע הטקסט ללבן */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    font-size: 28px;
+}
+
+/* עיצוב אזור ההתחברות */
+.auth-form {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #444;
+    /* שינוי צבע הרקע לאפור כהה */
+    color: white;
+    /* שינוי צבע הטקסט ללבן */
+}
+
+.auth-form button {
+    padding: 10px 20px;
+    background-color: #333;
+    /* שינוי צבע הרקע לאפור כהה */
+    color: black;
+    /* שינוי צבע הטקסט לשחור */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: white;
+    /* שינוי צבע הרקע בעת העברת העכבר לאפור כהה */
+}
+
+/* עיצוב אזור הגלריה */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* עיצוב התמונה */
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* כפתורי לייק */
+.like-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    /* שינוי צבע הלייק לשחור */
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.like-button.liked {
+    color: white;
+    /* שינוי צבע הלייק כשהוא מסומן ללבן */
+    transform: scale(1.1);
+}

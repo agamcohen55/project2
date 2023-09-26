@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Beautiful Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #555;
+        }
+
+        h1 {
+            text-align: center;
+            color: silver;
+            font-size: 36px;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        .toolbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .toolbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            max-width: 400px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .details {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            text-align: justify;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+        }
+
+        .form-input label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+
+        }
+
+        .form-input input {
+            padding: 5px;
+            width: 200px;
+            font-size: 20px;
+        }
+
+        .form-input input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-input input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .form-input p {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .details-page {
+            text-align: center;
+        }
+
+        .details-page h2 {
+            color: #f00;
+            font-size: 24px;
+        }
+
+        .details-page p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ברוכים הבאים לדף הפרוקייט השני שלי!</h1>
+
+    <div class="toolbar">
+        <a href="#">להתחבר</a>
+        <a href="#">ליצור קשר</a>
+    </div>
+
+    <div class="image-container">
+        <div>
+            <img src="../imges/img-HTML.png" alt="Image Description" class="image">
+            <img src="../imges/img-CSS.png" alt="Image Description" class="image">
+            <div class="details">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu justo sed ipsum finibus eleifend id
+                    vel augue. Sed eget ultrices sapien. Suspendisse potenti. Cras vehicula nulla sed mauris
+                    pellentesque, eget pharetra neque eleifend.</p>
+
+                <div class="form-container">
+                    <form action="">
+                        <div class="form-input">
+                            <label for="username">שם משתמש:</label>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="form-input">
+                            <label for="password">סיסמא:</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="form-input">
+                            <input type="submit" value="להתחבר">
+                        </div>
+                    </form>
+                    <p>להתחבר</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

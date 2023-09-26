@@ -1,0 +1,16 @@
+<div id="playModeDiv">
+    <button id="button2player" onclick="setPlayMode(2)">2 player game</button>
+    <button id="button1player" onclick="setPlayMode(1)">game against AI</button>
+</div>
+<div id="infoDiv"></div>
+<div id="boardDiv"></div>
+<div id="optionsDiv">
+    <input type="checkbox" onclick="toggleHighlight()" checked> highlight move options<br>
+    <div id="colourModeDiv">
+        AI colour:<br>
+        <input type="radio" name="aiColourOptions" onclick="setColourMode('random')" checked> random<br>
+        <input type="radio" name="aiColourOptions" onclick="setColourMode('B')"> black (goes first)<br>
+        <input type="radio" name="aiColourOptions" onclick="setColourMode('W')"> white (goes second)<br>
+    </div>
+</div>
+<div id="note">draughts/checkers with an AI running in the browser using Monte Carlo Tree Search to choose moves</div>

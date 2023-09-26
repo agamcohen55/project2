@@ -1,0 +1,282 @@
+/* Reset סגנון ברירת המחדל */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* הגדרות גופן מראשיות */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+
+/* הגדרות כלליות לאתר */
+.my-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* סרגל ניווט עליון */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 0;
+    color: white;
+    width: 100%;
+}
+
+.toolbar img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* אזור הפתיחה */
+.opening-area {
+    text-align: center;
+    padding: 20px;
+    background-color:teal ;
+    ;
+}
+
+.opening-area h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+   
+    }
+
+
+.opening-area p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.opening-area img {
+    max-width: 100%;
+}
+
+/* אזור התמונות */
+.img1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.img1 img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* אזור הפרופיל האישי */
+.personal-area {
+    text-align: center;
+    padding: 20px;
+}
+
+.personal-area img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.personal-area p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.personal-area a {
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.personal-area a:hover {
+    background-color: #555;
+}
+
+/* אזור הפרויקטים והמשחקים (ניתן להוסיף פרויקטים ומשחקים באמצעות עריכת ה-HTML) */
+.gallery-title {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+.gallery-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-box {
+    text-align: center;
+}
+
+.gallery-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gallery-box a {
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.gallery-box a:hover {
+    background-color: #555;
+}
+
+/* אזור הצור קשר */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: teal;
+    border-top: 2px solid #ddd;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-info h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    flex: 2;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.blue-bar {
+    background-color: #333;
+    color: teal;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.blue-bar .picture {
+    display: flex;
+    align-items: center;
+}
+
+.blue-bar .picture img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+/* סגנון רגיל למחשב */
+.my-container {
+    /* הגדרות סגנון למצב מחשב */
+}
+
+/* סגנון רספונסיבי לטלפון נייד */
+@media (max-width: 767px) {
+    .my-container {
+        /* הגדרות סגנון למצב רספונסיבי (למשל, הוצאת או הסתרת אלמנטים) */
+    }
+}
+/* הוסף את האנימציה רק כאשר העכבר מעביר על הסמלים */
+.img1 img:hover {
+    transform: translateY(-5px);
+    /* זוזים 5 פיקסלים למעלה */
+    transition: transform 0.2s ease;
+    /* זמן האנימציה ומרקם */
+}
+/* הוסף אנימציה כאשר העכבר מעביר על הפרויקט */
+.gallery-box:hover {
+    transform: translateY(-5px);
+    /* זוזים 5 פיקסלים למעלה */
+    transition: transform 0.2s ease;
+    /* זמן האנימציה ומרקם */
+}
+/* הגדר את הכותרת הראשית להיות ברוחב מלא של המחשב */
+/* סגנון לתפריט בצד ימין */
+.service-list {
+    margin-left: auto;
+    /* ישמין את התפריט */
+    display: flex;
+    list-style: none;
+}
+
+.service-list li {
+    margin-left: 20px;
+    /* הפרדה בין הפריטים בתפריט */
+}
