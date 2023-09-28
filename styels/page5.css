@@ -1,119 +1,142 @@
- .toolbar {
-     background-color: #333;
-     color: #fff;
-     display: flex;
-     align-items: center;
-     padding: 10px;
- }
+/* Common styles for toolbar and opening area */
+.toolbar,
+.opening-area {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
 
- .toolbar img {
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
-     margin-right: 5px;
- }
+.toolbar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
 
- .toolbar .service-list {
-     margin-left: auto;
- }
+.toolbar .service-list {
+    margin-left: auto;
+}
 
- .toolbar .service-list li {
-     display: inline;
-     margin-right: 15px;
- }
+.toolbar .service-list li {
+    display: inline;
+    margin-right: 15px;
+}
 
- .toolbar .service-list li:last-child {
-     margin-right: 0;
- }
+.toolbar .service-list li:last-child {
+    margin-right: 0;
+}
 
- .toolbar .service-list a {
-     color: #fff;
-     text-decoration: none;
-     font-size: 20px;
-     ;
- }
+.toolbar .service-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
 
- .toolbar .service-list a:hover {
-     text-decoration: underline;
+.toolbar .service-list a:hover {
+    text-decoration: underline;
+}
 
- }
+.opening-area {
+    background-color: #13E8F163;
+    text-align: center;
+    padding: 100px 0;
+}
 
- .opening-area {
-     background-color: #13E8F163;
-     text-align: center;
-     padding: 100px 0;
- }
+.opening-area h1 {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
 
- .opening-area h1 {
-     font-size: 100px;
-     margin-bottom: 20px;
- }
+.opening-area p {
+    font-size: 18px;
+}
 
- .opening-area p {
-     font-size: 18px;
- }
+.opening-area img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
 
- .opening-area img {
-     max-width: 100%;
-     height: auto;
-     margin-top: 30px;
- }
+/* Updated styles for .img1 and .img2 */
+.img1 {
+    top: 541px;
+        left: 0px;
+        width: 1920px;
+        height: 130px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        opacity: 1;
+        text-align: right;
+}
 
- .img1 {
-     top: 541px;
-     left: 0px;
-     width: 2200px;
+.img1 a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 167px;
+    height: 29px;
+    background: #1AE0EC 0% 0% no-repeat padding-box;
+    border-radius: 25px;
+    opacity: 1;
+    text-align: center;
+    font: normal normal bold 20px/30px Heebo;
+    letter-spacing: 0.3px;
+    color: hsla(0, 0%, 23%, 1);
+    opacity: 1;
+}
 
-     background: #FFFFFF 0% 0% no-repeat padding-box;
-     box-shadow: 0px 3px 6px #00000029;
-     opacity: 1;
-     text-align: center;
+.img2 {
+.img2 {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 3px 6px #00000029;
+        opacity: 1;
+        text-align: center;
+        background-size: contain;
+        /* קבע את התמונה למילוי את התיבה */
+    }
+}
+/* Updated styles for .img2 */
 
- }
 
- .img1 a:hover {
-     color: #000;
- }
+.img2 img {
+    width: 100%;
+    /* עשה את התמונה רספונסיבית */
+    height: auto;
+    /* שמור על יחסי תמונה */
+}
 
- .img2 {
-     height: 100%;
-     margin: 0;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-
- }
-
- .opening-area a {
-     top: 1244px;
-     left: 830px;
-     width: 260px;
-     height: 41px;
-     background: #1AE0EC 0% 0% no-repeat padding-box;
-     border-radius: 25px;
-     opacity: 1;
-     top: 1250px;
-     left: 877px;
-     width: 167px;
-     height: 29px;
-     text-align: right;
-     font: normal normal bold 20px/30px Heebo;
-     letter-spacing: 0.3px;
-     color: hsla(0, 0%, 23%, 1);
-     opacity: 1;
- }
-
+/* Responsive styles for .my-container */
 @media screen and (max-width: 768px) {
     .my-container {
-        display: flex;
         flex-direction: column;
+    }
+
+    .img1 {
+        width: 100%;
+        height: auto;
+        max-width: none;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+    }
+
+    .img1 a {
+        position: relative;
+        margin-top: 20px;
+        width: auto;
+        height: auto;
+        text-align: center;
+        font: normal normal bold 16px/24px Heebo;
     }
 }
 
-
-@media screen and (min-width: 769px) {}
-
-.my-container {
-    display: flex;
-    flex-direction: row;
+/* Desktop styles (if needed) */
+@media screen and (min-width: 769px) {
+    .my-container {
+        display: flex;
+        flex-direction: row;
+    }
 }
